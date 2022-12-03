@@ -33,7 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const codeToQuery = selectedCode || entireFileContents;
 
 		if (codeToQuery) {
-			vscode.window.showInformationMessage('Querying ChatGPT with selected code...');
+			const outputDocument = await vscode.workspace.openTextDocument({ content: 'Querying ChatGPT with selected code...', language: "markdown" });
+			const outputDocumentEditor = await vscode.window.showTextDocument(outputDocument, { viewColumn: vscode.ViewColumn.Beside }); // open in split view
 
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
@@ -42,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword")  as string | null;
 
 			// todo: query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: true }); // change headless to false to see the browser
+			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false }); // change headless to false to see the browser
 			const page = await browser.newPage();
 
 			await page.goto("https://chat.openai.com/chat");
@@ -82,13 +83,19 @@ export function activate(context: vscode.ExtensionContext) {
 			await page.keyboard.press("Enter"); // press enter to send query
 
 			// todo: get response from div.markdown.prose and return to user
-			await new Promise((resolve) => setTimeout(resolve, 10_000)); // allows time for response to be "typed" out
-			const response = await page.$eval("div.markdown.prose", el => el.textContent);
+			await page.waitForSelector("path[d='M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3']"); // wait for like button
+			const response = (await page.$eval("div.markdown.prose", el => el.textContent)).replace("Copy code", "\n");
 			console.log("response", response);
 
-			const responseDocument = await vscode.workspace.openTextDocument({ content: response, language: "markdown" });
-			await vscode.window.showTextDocument(responseDocument, { viewColumn: vscode.ViewColumn.Beside }); // open in split view
-
+			outputDocumentEditor.edit((editBuilder) => {
+				editBuilder.replace(
+					new vscode.Range(
+						new vscode.Position(0, 0),
+						new vscode.Position(99999999999999, 0)
+					),
+					response
+				);
+			});
 
 		} else {
 			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
