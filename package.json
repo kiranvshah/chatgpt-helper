@@ -37,7 +37,7 @@
           "type": "string",
           "description": "Your OpenAI [assword to authenticate requests to ChatGPT. This will not be sent or stored to anywhere except to openai.com. You are solely responsible for all data sent to OpenAI and the use of the service in this way."
         },
-        "chatgpt-helper.queries.defaultQuery": {
+        "chatgpt-helper.queries.queryText": {
           "type": "string",
           "default": "Explain what is wrong with the following code:",
           "description": "The default query to send to ChatGPT. Will be sent alongside (before) the code."
