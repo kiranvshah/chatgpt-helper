@@ -30,6 +30,20 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const codeToQuery = selectedCode || entireFileContents;
 
+		if (codeToQuery) {
+			vscode.window.showInformationMessage('Querying ChatGPT with selected code...');
+
+			const workspaceConfiguration = vscode.workspace.getConfiguration();
+			
+			const entireQueryText = workspaceConfiguration.get("chatgpt-helper.queries.queryText") + '\n' + codeToQuery;
+			const openaiEmail = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiEmail");
+			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword");
+
+			// todo: query chatgpt 
+		} else {
+			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
+		}
+
 	});
 
 	context.subscriptions.push(disposable, askChatGPT);
