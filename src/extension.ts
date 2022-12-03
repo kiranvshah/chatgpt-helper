@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword")  as string | null;
 
 			// todo: query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false }); // change headless to false to see the browser
+			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: true }); // change headless to false to see the browser
 			const page = await browser.newPage();
 
 			await page.goto("https://chat.openai.com/chat");
