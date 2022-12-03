@@ -37,15 +37,52 @@ export function activate(context: vscode.ExtensionContext) {
 
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
-			const entireQueryText = workspaceConfiguration.get("chatgpt-helper.queries.queryText") + '\n' + codeToQuery;
-			const openaiEmail = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiEmail");
-			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword");
+			const entireQueryText = workspaceConfiguration.get("chatgpt-helper.queries.queryText") as string | null + '\n' + codeToQuery;
+			const openaiEmail = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiEmail") as string | null;
+			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword")  as string | null;
 
 			// todo: query chatgpt 
 			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false });
 			const page = await browser.newPage();
 
-			await page.goto("https://example.com");
+			await page.goto("https://chat.openai.com/chat");
+			
+			if (page.url() === "https://chat.openai.com/auth/login") {
+				if (!openaiEmail || !openaiPassword) {
+					vscode.window.showErrorMessage("OpenAI email and password not set in settings.json");
+					return;
+				}
+
+				// click login button
+				await page.click("button"); // first button on page is login button
+				await page.waitForNavigation(); // wait for page redirect
+				await page.type("input#username", openaiEmail as string); // enter email
+				await page.click("button"); // click continue button
+				await page.waitForSelector("input#password"); // wait for page load
+				await page.type("input#password", openaiPassword as string); // enter password
+				await page.click("button[type=submit]"); // click continue button
+				await page.waitForNavigation(); // wait for page redirect
+
+				if (page.url() !== "https://chat.openai.com/auth/login") {
+					vscode.window.showErrorMessage("OpenAI email and/or password incorrect. Could not log in.");
+					return;
+				}
+			}
+
+			// should be successfully logged in now
+			// todo: a tutorial may show at this point. it should be dismissed.
+
+			await page.waitForSelector("textarea"); // wait for page load
+			for (const line of entireQueryText.split("\n")) {
+				await page.type("textarea", line);
+				await page.keyboard.down("Shift");
+				await page.keyboard.press("Enter");
+				await page.keyboard.up("Shift");
+			}
+			await page.keyboard.press("Enter"); // press enter to send query
+
+			// todo: get response from div.markdown.prose and return to user
+
 		} else {
 			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
 		}
