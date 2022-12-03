@@ -1,6 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import puppeteer from 'puppeteer';
+
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -19,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from ChatGPT Helper!');
 	});
 
-	const askChatGPT = vscode.commands.registerCommand('chatgpt-helper.askChatGPT', () => {
+	const askChatGPT = vscode.commands.registerCommand('chatgpt-helper.askChatGPT', async () => {
 		// code placed here will be executed every time command is executed
 		
 		// store selected code in a variable named selectedCode
@@ -40,6 +42,10 @@ export function activate(context: vscode.ExtensionContext) {
 			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword");
 
 			// todo: query chatgpt 
+			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false });
+			const page = await browser.newPage();
+
+			await page.goto("https://example.com");
 		} else {
 			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
 		}
