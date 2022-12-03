@@ -24,7 +24,26 @@
         "command": "chatgpt-helper.askChatGPT",
         "title": "Ask ChatGPT about your code"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "ChatGPT Helper",
+      "properties": {
+        "chatgpt-helper.authentication.OpenaiEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Your OpenAI email to authenticate requests to ChatGPT. This will not be sent or stored to anywhere except to openai.com. You are solely responsible for all data sent to OpenAI and the use of the service in this way."
+        },
+        "chatgpt-helper.authentication.OpenaiPassword": {
+          "type": "string",
+          "description": "Your OpenAI [assword to authenticate requests to ChatGPT. This will not be sent or stored to anywhere except to openai.com. You are solely responsible for all data sent to OpenAI and the use of the service in this way."
+        },
+        "chatgpt-helper.queries.defaultQuery": {
+          "type": "string",
+          "default": "Explain what is wrong with the following code:",
+          "description": "The default query to send to ChatGPT. Will be sent alongside (before) the code."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
