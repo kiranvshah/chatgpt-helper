@@ -42,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword")  as string | null;
 
 			// todo: query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false });
+			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: true }); // change headless to false to see the browser
 			const page = await browser.newPage();
 
 			await page.goto("https://chat.openai.com/chat");
@@ -82,6 +82,13 @@ export function activate(context: vscode.ExtensionContext) {
 			await page.keyboard.press("Enter"); // press enter to send query
 
 			// todo: get response from div.markdown.prose and return to user
+			await new Promise((resolve) => setTimeout(resolve, 10_000)); // allows time for response to be "typed" out
+			const response = await page.$eval("div.markdown.prose", el => el.textContent);
+			console.log("response", response);
+
+			const responseDocument = await vscode.workspace.openTextDocument({ content: response, language: "markdown" });
+			await vscode.window.showTextDocument(responseDocument, { viewColumn: vscode.ViewColumn.Beside }); // open in split view
+
 
 		} else {
 			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
