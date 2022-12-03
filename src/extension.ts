@@ -19,7 +19,20 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from ChatGPT Helper!');
 	});
 
-	context.subscriptions.push(disposable);
+	const askChatGPT = vscode.commands.registerCommand('chatgpt-helper.askChatGPT', () => {
+		// code placed here will be executed every time command is executed
+		
+		// store selected code in a variable named selectedCode
+		const selectedCode = vscode.window.activeTextEditor?.document.getText(vscode.window.activeTextEditor?.selection);
+
+		// store entire file contents in a variable too
+		const entireFileContents = vscode.window.activeTextEditor?.document.getText();
+
+		const codeToQuery = selectedCode || entireFileContents;
+
+	});
+
+	context.subscriptions.push(disposable, askChatGPT);
 }
 
 // This method is called when your extension is deactivated

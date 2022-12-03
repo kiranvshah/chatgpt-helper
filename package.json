@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:chatgpt-helper.helloWorld"
+    "onCommand:chatgpt-helper.helloWorld",
+    "onCommand:chatgpt-helper.askChatGPT"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -18,6 +19,10 @@
       {
         "command": "chatgpt-helper.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "chatgpt-helper.askChatGPT",
+        "title": "Ask ChatGPT about your code"
       }
     ]
   },
