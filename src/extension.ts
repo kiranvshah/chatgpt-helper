@@ -77,7 +77,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// get response from div.markdown.prose and return to user
 			await page.waitForSelector("path[d='M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3']"); // wait for like button
-			const response = await page.evaluate(() => {
+			const response = (await page.evaluate(() => {
 				const elements = document.querySelector("div.markdown.prose")!.children;
 				let buildingResponse = "";
 				for (const e of elements) {
@@ -86,7 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
 					console.log(e.textContent);
 				}
 				return buildingResponse;
-			});
+			})).split("Copy code").join("");
 
 
 			outputDocumentEditor.edit((editBuilder) => {
