@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
 				await page.click("button[type=submit]"); // click continue button
 				await page.waitForNavigation(); // wait for page redirect
 
-				if (page.url() !== "https://chat.openai.com/auth/login") {
+				if (await page.evaluate(() => document.body.innerText.includes("Wrong email or password"))) {
 					vscode.window.showErrorMessage("OpenAI email and/or password incorrect. Could not log in.");
 					return;
 				}
