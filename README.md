@@ -1,71 +1,30 @@
-# chatgpt-helper README
+# ChatGPT Helper
 
-This is the README for your extension "chatgpt-helper". After writing up a brief description, we recommend including the following sections.
+This is a package to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt/) from VS Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Ask why you're code's not working
 
-For example if there is an image subfolder under your extension project workspace:
+Use the "Ask ChatGPT about your code" command in the Command Palette to use this.
 
-\!\[feature X\]\(images/feature-x.png\)
+> animation here
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Configuration
 
-## Requirements
+In order to query ChatGPT, you must have an OpenAI account, and should input your username and password into your VS Code settings:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open User Settings (`Ctrl` + `,`)
+2. Search for "ChatGPT"
+3. Input your username and password into the required fields:
+![](/images/username_and_password_config.png)
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+> Your OpenAI username and password will never be shared with anyone except OpenAI, when logging into your account to query ChatGPT. You are responsible for all data sent to OpenAI and the use of its services under your account.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+*None*
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+*None*
