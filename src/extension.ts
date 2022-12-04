@@ -3,7 +3,6 @@
 import * as vscode from 'vscode';
 import puppeteer from 'puppeteer';
 
-
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -30,18 +29,21 @@ export function activate(context: vscode.ExtensionContext) {
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
 			const entireQueryText = workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery;
-			const openaiEmail = workspaceConfiguration.get("chatgptHelper.authentication.OpenaiEmail") as string | null;
-			const openaiPassword = workspaceConfiguration.get("chatgptHelper.authentication.OpenaiPassword")  as string | null;
 
 			// todo: query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: true }); // change headless to true to see the browser
+			const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to true to see the browser
 			const page = await browser.newPage();
 
 			await page.goto("https://chat.openai.com/chat");
 			
 			if (page.url() === "https://chat.openai.com/auth/login") {
-				if (!openaiEmail || !openaiPassword) {
-					vscode.window.showErrorMessage("OpenAI email and password not set in settings.json");
+				const openaiEmail = await vscode.window.showInputBox({title: "OpenAI Email", prompt: "Enter the email address associated with your OpenAI account.  This will be stored locally on your machine, and never be shared with anyone except OpenAI. You are responsible for all data sent to OpenAI and the use of its services under your account.", placeHolder: "OpenAI Email"});
+				const openaiPassword = await vscode.window.showInputBox({title: "OpenAI Password", prompt: "Enter the password for your OpenAI account.  This will be stored locally on your machine, and never be shared with anyone except OpenAI. You are responsible for all data sent to OpenAI and the use of its services under your account.", password: true, placeHolder: "OpenAI Password"});
+
+				// check email is valid
+				if (!openaiEmail || !/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(openaiEmail)) {
+					// show error and return
+					vscode.window.showErrorMessage("Invalid email provided. Cancelled.");
 					return;
 				}
 

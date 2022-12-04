@@ -12,13 +12,6 @@ Use the "Ask ChatGPT about your code" command in the Command Palette to use this
 
 ## Configuration
 
-In order to query ChatGPT, you must have an OpenAI account, and should input your username and password into your VS Code settings:
-
-1. Open User Settings (`Ctrl` + `,`)
-2. Search for "ChatGPT"
-3. Input your username and password into the required fields:
-![](/images/username_and_password_config.png)
-
 > Your OpenAI username and password will never be shared with anyone except OpenAI, when logging into your account to query ChatGPT. You are responsible for all data sent to OpenAI and the use of its services under your account.
 
 ## Known Issues
