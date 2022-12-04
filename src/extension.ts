@@ -37,12 +37,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
-			const entireQueryText = workspaceConfiguration.get("chatgpt-helper.queries.queryText") + '\n' + codeToQuery;
-			const openaiEmail = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiEmail");
-			const openaiPassword = workspaceConfiguration.get("chatgpt-helper.authentication.OpenaiPassword");
+			const entireQueryText = workspaceConfiguration.get("chatgptHelper.queries.queryText") + '\n' + codeToQuery;
+			const openaiEmail = workspaceConfiguration.get("chatgptHelper.authentication.OpenaiEmail");
+			const openaiPassword = workspaceConfiguration.get("chatgptHelper.authentication.OpenaiPassword");
 
 			// todo: query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: false });
+			const browser = await puppeteer.launch({ userDataDir: '/tmp/myChromeSession', headless: true });
 			const page = await browser.newPage();
 
 			await page.goto("https://example.com");
