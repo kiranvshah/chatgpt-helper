@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import puppeteer from 'puppeteer';
 
 const sendQueryToChatGPT = async (queryText: string) => {
-	const outputDocument = await vscode.workspace.openTextDocument({ content: 'Querying ChatGPT with selected code...', language: "markdown" });
+	const outputDocument = await vscode.workspace.openTextDocument({ content: 'Querying ChatGPT. This may take some time...', language: "markdown" });
 	const outputDocumentEditor = await vscode.window.showTextDocument(outputDocument, { viewColumn: vscode.ViewColumn.Beside, preserveFocus: true, preview: true }); // open in split view
 	
 	const entireQueryText = (queryText).split("\r\n").join("\n");
