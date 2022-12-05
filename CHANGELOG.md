@@ -7,7 +7,7 @@
 # 1.1.0
 
 - Add headless configuration option
-- Move changelog from README.md to CHANGELOG.md
+- Move changelog from `README.md` to `CHANGELOG.md`
 
 # 1.0.0
 
