@@ -9,6 +9,17 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "chatgpt",
+    "openai",
+    "gpt-3",
+    "ai"
+  ],
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiranvshah/chatgpt-helper.git"
+  },
   "activationEvents": [
     "onCommand:chatgpt-helper.askChatGptWhyNotWorking",
     "onCommand:chatgpt-helper.askChatGptToExplainCode",
