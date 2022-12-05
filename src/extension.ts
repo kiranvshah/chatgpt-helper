@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
-			const entireQueryText = workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery;
+			const entireQueryText = (workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery).split("\r\n").join("\n");
 
 			// query chatgpt 
 			const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to true to see the browser
