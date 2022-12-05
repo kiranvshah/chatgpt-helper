@@ -56,9 +56,3 @@ Sometimes, your session logged in to OpenAI will expire, and the extension canno
 2. Delete the `chromedata` folder.
 3. Restart VS Code.
 4. When you next query ChatGPT, you will be prompted to log in again.
-
-## Release Notes
-
-### 1.0.0
-
-Initial release.
