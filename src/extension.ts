@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 			
 			const entireQueryText = workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery;
 
-			// todo: query chatgpt 
+			// query chatgpt 
 			const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to true to see the browser
 			const page = await browser.newPage();
 
@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 
 			// should be successfully logged in now
-			// todo: a tutorial may show at this point. it should be dismissed.
+			// a tutorial may show at this point. it is unimportant however, since the code can work beneath the modal
 
 			await page.waitForSelector("textarea"); // wait for page load
 			for (const line of entireQueryText.split("\n")) {
@@ -86,7 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
 					console.log(e.textContent);
 				}
 				return buildingResponse;
-			})).split("Copy code").join("");
+			})).split("Copy code").join("\n");
 
 
 			outputDocumentEditor.edit((editBuilder) => {
