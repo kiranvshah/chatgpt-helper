@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if (codeToQuery) {
 			const outputDocument = await vscode.workspace.openTextDocument({ content: 'Querying ChatGPT with selected code...', language: "markdown" });
-			const outputDocumentEditor = await vscode.window.showTextDocument(outputDocument, { viewColumn: vscode.ViewColumn.Beside }); // open in split view
+			const outputDocumentEditor = await vscode.window.showTextDocument(outputDocument, { viewColumn: vscode.ViewColumn.Beside, preserveFocus: true, preview: true }); // open in split view
 
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
 			
