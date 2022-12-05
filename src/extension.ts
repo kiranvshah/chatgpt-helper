@@ -62,7 +62,6 @@ const sendQueryToChatGPT = async (queryText: string) => {
 		for (const e of elements) {
 			buildingResponse += e.textContent;
 			buildingResponse += "\n";
-			console.log(e.textContent);
 		}
 		return buildingResponse;
 	})).split("Copy code").join("\n");
@@ -82,10 +81,6 @@ const sendQueryToChatGPT = async (queryText: string) => {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "chatgpt-helper" is now active!');
 
 	const askChatGPT = vscode.commands.registerCommand('chatgpt-helper.askChatGPT', async () => {
 		// code placed here will be executed every time command is executed
