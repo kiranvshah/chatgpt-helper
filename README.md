@@ -1,6 +1,6 @@
 # ChatGPT Helper
 
-This is a package to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt/) from VS Code.
+This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt/) from VS Code.
 
 ## Features
 
