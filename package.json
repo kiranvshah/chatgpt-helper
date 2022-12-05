@@ -11,6 +11,7 @@
   ],
   "activationEvents": [
     "onCommand:chatgpt-helper.askChatGptWhyNotWorking",
+    "onCommand:chatgpt-helper.askChatGptToExplainCode",
     "onCommand:chatgpt-helper.askChatGptCustomQuery"
   ],
   "main": "./out/extension.js",
@@ -21,6 +22,10 @@
         "title": "ChatGPT: Ask why code isn't working"
       },
       {
+        "command": "chatgpt-helper.askChatGptToExplainCode",
+        "title": "ChatGPT: Ask to explain code"
+      },
+      {
         "command": "chatgpt-helper.askChatGptCustomQuery",
         "title": "ChatGPT: Ask a question"
       }
@@ -28,10 +33,15 @@
     "configuration": {
       "title": "ChatGPT Helper",
       "properties": {
-        "chatgptHelper.queries.queryText": {
+        "chatgptHelper.queries.queryCodeNotWorking": {
           "type": "string",
           "default": "Explain what is wrong with the following code:",
-          "description": "The default query to send to ChatGPT. Will be sent alongside (before) the code."
+          "description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
+        },
+        "chatgptHelper.queries.queryExplainCode": {
+          "type": "string",
+          "default": "Explain the following code:",
+          "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
         }
       }
     }

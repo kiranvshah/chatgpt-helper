@@ -95,7 +95,28 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if (codeToQuery) {
 			const workspaceConfiguration = vscode.workspace.getConfiguration();
-			sendQueryToChatGPT(workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery);
+			sendQueryToChatGPT(workspaceConfiguration.get("chatgptHelper.queries.queryCodeNotWorking") as string | null + '\n' + codeToQuery);
+
+		} else {
+			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
+		}
+
+	});
+
+	const askChatGptToExplainCode = vscode.commands.registerCommand('chatgpt-helper.askChatGptToExplainCode', () => {
+		// code placed here will be executed every time command is executed
+		
+		// store selected code in a variable named selectedCode
+		const selectedCode = vscode.window.activeTextEditor?.document.getText(vscode.window.activeTextEditor?.selection);
+
+		// store entire file contents in a variable too
+		const entireFileContents = vscode.window.activeTextEditor?.document.getText();
+
+		const codeToQuery = selectedCode || entireFileContents;
+
+		if (codeToQuery) {
+			const workspaceConfiguration = vscode.workspace.getConfiguration();
+			sendQueryToChatGPT(workspaceConfiguration.get("chatgptHelper.queries.queryExplainCode") as string | null + '\n' + codeToQuery);
 
 		} else {
 			vscode.window.showErrorMessage('No code selected or file is empty. Did not send to ChatGPT');
@@ -113,7 +134,7 @@ export function activate(context: vscode.ExtensionContext) {
 	})
 
 
-	context.subscriptions.push(askChatGptWhyNotWorking, askChatGptCustomQuery);
+	context.subscriptions.push(askChatGptWhyNotWorking, askChatGptToExplainCode, askChatGptCustomQuery);
 }
 
 // This method is called when your extension is deactivated
