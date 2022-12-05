@@ -82,7 +82,7 @@ const sendQueryToChatGPT = async (queryText: string) => {
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	const askChatGptWhyNotWorking = vscode.commands.registerCommand('chatgpt-helper.askChatGptWhyNotWorking', async () => {
+	const askChatGptWhyNotWorking = vscode.commands.registerCommand('chatgpt-helper.askChatGptWhyNotWorking', () => {
 		// code placed here will be executed every time command is executed
 		
 		// store selected code in a variable named selectedCode
