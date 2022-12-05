@@ -10,7 +10,7 @@ const sendQueryToChatGPT = async (queryText: string) => {
 	const entireQueryText = (queryText).split("\r\n").join("\n");
 
 	// query chatgpt 
-	const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to false to see the browser
+	const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: vscode.workspace.getConfiguration().get("chatgptHelper.browser.headless") }); // change headless to false to see the browser
 	const page = await browser.newPage();
 
 	await page.goto("https://chat.openai.com/chat");

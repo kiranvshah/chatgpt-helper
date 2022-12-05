@@ -54,6 +54,11 @@
           "type": "string",
           "default": "Explain the following code:",
           "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
+        },
+        "chatgptHelper.browser.headless": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to run the browser in headless mode."
         }
       }
     }
