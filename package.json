@@ -18,11 +18,11 @@
     "commands": [
       {
         "command": "chatgpt-helper.askChatGptWhyNotWorking",
-        "title": "Ask ChatGPT why code isn't working"
+        "title": "ChatGPT: Ask why code isn't working"
       },
       {
         "command": "chatgpt-helper.askChatGptCustomQuery",
-        "title": "Ask ChatGPT a question"
+        "title": "ChatGPT: Ask a question"
       }
     ],
     "configuration": {
