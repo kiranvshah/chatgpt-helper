@@ -20,6 +20,7 @@
     "type": "git",
     "url": "https://github.com/kiranvshah/chatgpt-helper.git"
   },
+  "publisher": "Kiran Shah",
   "activationEvents": [
     "onCommand:chatgpt-helper.askChatGptWhyNotWorking",
     "onCommand:chatgpt-helper.askChatGptToExplainCode",
