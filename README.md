@@ -20,4 +20,6 @@ Use the "Ask ChatGPT about your code" command in the Command Palette to use this
 
 ## Release Notes
 
-*None*
+### 1.0.0
+
+Initial release.
