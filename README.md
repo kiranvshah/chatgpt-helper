@@ -48,7 +48,14 @@ In order to change the message sent to the AI that comes before your code, when 
 
 ## Known Issues
 
-*None*
+### Session expiration
+
+Sometimes, your session logged in to OpenAI will expire, and the extension cannot automatically log you back in. Follow the following steps to log back in:
+
+1. Go to `\chatgpt-helper\` in your system's file explorer.
+2. Delete the `chromedata` folder.
+3. Restart VS Code.
+4. When you next query ChatGPT, you will be prompted to log in again.
 
 ## Release Notes
 
