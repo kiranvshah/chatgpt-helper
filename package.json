@@ -2,7 +2,7 @@
   "name": "chatgpt-helper",
   "displayName": "ChatGPT Helper",
   "description": "Make queries to OpenAI's ChatGPT from inside VS Code.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.73.0"
   },
