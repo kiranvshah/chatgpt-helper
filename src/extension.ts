@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const entireQueryText = (workspaceConfiguration.get("chatgptHelper.queries.queryText") as string | null + '\n' + codeToQuery).split("\r\n").join("\n");
 
 			// query chatgpt 
-			const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to true to see the browser
+			const browser = await puppeteer.launch({ userDataDir: '/chatgpt-helper/chromedata', headless: true }); // change headless to false to see the browser
 			const page = await browser.newPage();
 
 			await page.goto("https://chat.openai.com/chat");
