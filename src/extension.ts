@@ -103,7 +103,17 @@ export function activate(context: vscode.ExtensionContext) {
 
 	});
 
-	context.subscriptions.push(askChatGptWhyNotWorking);
+	const askChatGptCustomQuery = vscode.commands.registerCommand('chatgpt-helper.askChatGptCustomQuery', async () => {
+		const queryText = await vscode.window.showInputBox({title: "ChatGPT Query", prompt: "Enter question for ChatGPT.", placeHolder: "Query"});
+		if (queryText) {
+			sendQueryToChatGPT(queryText);
+		} else {
+			vscode.window.showErrorMessage('No query entered. Did not send to ChatGPT');
+		}
+	})
+
+
+	context.subscriptions.push(askChatGptWhyNotWorking, askChatGptCustomQuery);
 }
 
 // This method is called when your extension is deactivated
