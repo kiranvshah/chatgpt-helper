@@ -6,13 +6,28 @@ This is a package to quickly query OpenAI's [ChatGPT](https://openai.com/blog/ch
 
 ### Ask why you're code's not working
 
-Use the "Ask ChatGPT about your code" command in the Command Palette to use this.
+Use the "Ask ChatGPT about your code" command in the Command Palette to use this:
+
+1. Select the code you want to ask about. If you want to ask about the whole file, do not select any text.
+2. Press `Ctrl` + `Shift` + `P` to open the Command Palette.
+3. Begin typing `Ask ChatGPT about your code`, and select it when it appears.
+4. Wait for the response. It will appear in a new tab.
 
 > animation here
 
 ## Configuration
 
+When first querying ChatGPT, you will have to enter your OpenAI username and password so the extension can access ChatGPT.
+
 > Your OpenAI username and password will never be shared with anyone except OpenAI, when logging into your account to query ChatGPT. You are responsible for all data sent to OpenAI and the use of its services under your account.
+
+### Changing Query Text
+
+In order to change the message sent to the AI that comes before your code, when running the `Ask ChatGPT about your code`, follow these instructions:
+
+1. `Ctrl` + `,` to open Preferences.
+2. Search for `chatgpt`.
+3. Change the `chatgpt.queryText` setting to whatever you want.
 
 ## Known Issues
 
