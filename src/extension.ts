@@ -131,7 +131,7 @@ export function activate(context: vscode.ExtensionContext) {
 		} else {
 			vscode.window.showErrorMessage('No query entered. Did not send to ChatGPT');
 		}
-	})
+	});
 
 
 	context.subscriptions.push(askChatGptWhyNotWorking, askChatGptToExplainCode, askChatGptCustomQuery);
