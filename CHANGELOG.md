@@ -13,6 +13,10 @@
 - Update CHANGELOG formatting
     - Use inline code blocks
     - Use `h2` headers for versions
+- Update LICENSE formatting
+    - Remove notes at bottom (how to apply the license)
+    - Add header, including year, name and link to license text
+    - Add `license` field to `package.json`
 
 ## 1.1.1
 
