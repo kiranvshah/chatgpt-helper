@@ -4,26 +4,51 @@ import * as vscode from 'vscode';
 import { ChatGPTAPI } from 'chatgpt';
 
 const sendQueryToChatGPT = async (queryText: string) => {
+	// get user or workspace configuration object
+	let config = vscode.workspace.getConfiguration();
+
+	const getSessionToken = () => config.get("chatgptHelper.sessionToken") as string;
+
 	const outputDocument = await vscode.workspace.openTextDocument({ content: 'Querying ChatGPT. This may take some time...', language: "markdown" });
 	const outputDocumentEditor = await vscode.window.showTextDocument(outputDocument, { viewColumn: vscode.ViewColumn.Beside, preserveFocus: true, preview: true }); // open in split view
 	
 	const entireQueryText = (queryText).split("\r\n").join("\n");
 
-	// todo: query chatgpt
-	const api = new ChatGPTAPI({ sessionToken: "SESSION_TOKEN_HERE" });
-	await api.ensureAuth();
+	if (!getSessionToken()) {
+		// update session token
+		await config.update("chatgptHelper.sessionToken", await vscode.window.showInputBox({title: "ChatGPT Session Token", prompt: "Go to chat.openai.com/chat. Press Ctrl+Shift+I (or Command+Option+I on Mac). Open Applications > Cookies > https://chat.openai.com. Copy the value of the `__Secure-next-auth.session-token` and paste it here.", placeHolder: "ChatGPT Session Token", ignoreFocusOut: true}), vscode.ConfigurationTarget.Global);;
+		// update config var
+		config = vscode.workspace.getConfiguration();
+	}
 
-	const response = await api.sendMessage(entireQueryText);
+	try {
+		// query chatgpt
+		const api = new ChatGPTAPI({ sessionToken: getSessionToken() });
+		await api.ensureAuth();
 
-	outputDocumentEditor.edit((editBuilder) => {
-		editBuilder.replace(
-			new vscode.Range(
-				new vscode.Position(0, 0),
-				new vscode.Position(99999999999999, 0)
-			),
-			response
-		);
-	});
+		const response = await api.sendMessage(entireQueryText);
+
+		outputDocumentEditor.edit((editBuilder) => {
+			editBuilder.replace(
+				new vscode.Range(
+					new vscode.Position(0, 0),
+					new vscode.Position(99999999999999, 0)
+				),
+				response
+			);
+		});
+	} catch (error) {
+		outputDocumentEditor.edit((editBuilder) => {
+			editBuilder.replace(
+				new vscode.Range(
+					new vscode.Position(0, 0),
+					new vscode.Position(99999999999999, 0)
+				),
+				`Error querying ChatGPT. Try updating your session token?\n\n${error}`
+			);
+		});
+	}
+	
 };
 
 // This method is called when your extension is activated

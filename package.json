@@ -60,6 +60,11 @@
           "type": "boolean",
           "default": true,
           "description": "Whether to run the browser in headless mode."
+        },
+        "chatgptHelper.sessionToken": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Session token for ChatGPT. To find, go to [chat.openai.com/chat](https://chat.openai.com/chat). Press `Ctrl`+`Shift`+`I` (or `Command`+`Option`+`I` on Mac). Open Applications > Cookies > `https://chat.openai.com`. Copy the value of the `__Secure-next-auth.session-token` and paste it here."
         }
       }
     }
