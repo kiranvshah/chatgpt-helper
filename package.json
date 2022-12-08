@@ -2,7 +2,7 @@
   "name": "chatgpt-helper",
   "displayName": "ChatGPT Helper",
   "description": "Make queries to OpenAI's ChatGPT from inside VS Code.",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "license": "GPL-3.0-or-later",
   "engines": {
     "vscode": "^1.73.0"
@@ -55,11 +55,11 @@
           "type": "string",
           "default": "Explain the following code:",
           "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
-        },
-        "chatgptHelper.browser.headless": {
-          "type": "boolean",
-          "default": true,
-          "description": "Whether to run the browser in headless mode."
+        },        
+        "chatgptHelper.sessionToken": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Session token for ChatGPT. To find, go to [chat.openai.com/chat](https://chat.openai.com/chat). Press `Ctrl`+`Shift`+`I` (or `Command`+`Option`+`I` on Mac). Open Applications > Cookies > `https://chat.openai.com`. Copy the value of the `__Secure-next-auth.session-token` and paste it here."
         }
       }
     }
@@ -88,6 +88,6 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "puppeteer": "^19.3.0"
+    "chatgpt": "^2.0.5"
   }
 }

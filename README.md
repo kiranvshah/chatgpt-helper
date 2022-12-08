@@ -13,7 +13,6 @@ Use the "ChatGPT: Ask why code isn't working" command in the Command Palette:
 3. Begin typing `ChatGPT: Ask why code isn't working`, and select it when it appears.
 4. Wait for the response. It will appear in a new tab.
 
-
 ### Ask to explain your code
 
 Use the "ChatGPT: Ask to explain code" command in the Command Palette:
@@ -34,9 +33,13 @@ Use the "ChatGPT: Ask a question" command in the Command Palette:
 
 ## Configuration
 
-When first querying ChatGPT, you will have to enter your OpenAI username and password so the extension can access ChatGPT.
+### Session Token
 
-> Your OpenAI username and password will never be shared with anyone except OpenAI, when logging into your account to query ChatGPT. You are responsible for all data sent to OpenAI and the use of its services under your account.
+When first querying ChatGPT, you will have to enter your ChatGPT session token. Instructions to find this are as follows:
+1. Go to [chat.openai.com/chat](https://chat.openai.com/chat).
+2. Press `Ctrl` + `Shift` + `I` (or `Command` + `Option` + `I` on Mac).
+3. Open Applications > Cookies > `https://chat.openai.com`.
+4. Copy the value of the `__Secure-next-auth.session-token` and paste it where prompted, when querying the AI.
 
 ### Changing Query Text
 
@@ -48,11 +51,4 @@ In order to change the message sent to the AI that comes before your code, when 
 
 ## Known Issues
 
-### Session expiration
-
-Sometimes, your session logged in to OpenAI will expire, and the extension cannot automatically log you back in. Follow the following steps to log back in:
-
-1. Go to `\chatgpt-helper\` in your system's file explorer.
-2. Delete the `chromedata` folder.
-3. Restart VS Code.
-4. When you next query ChatGPT, you will be prompted to log in again.
+*None*
