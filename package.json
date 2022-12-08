@@ -46,21 +46,6 @@
     "configuration": {
       "title": "ChatGPT Helper",
       "properties": {
-        "chatgptHelper.queries.queryCodeNotWorking": {
-          "type": "string",
-          "default": "Explain what is wrong with the following code:",
-          "description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
-        },
-        "chatgptHelper.queries.queryExplainCode": {
-          "type": "string",
-          "default": "Explain the following code:",
-          "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
-        },
-        "chatgptHelper.browser.headless": {
-          "type": "boolean",
-          "default": true,
-          "description": "Whether to run the browser in headless mode."
-        },
         "chatgptHelper.sessionToken": {
           "type": "string",
           "default": "",
