@@ -1,97 +1,97 @@
 {
-  "name": "chatgpt-helper",
-  "displayName": "ChatGPT Helper",
-  "description": "Make queries to OpenAI's ChatGPT from inside VS Code.",
-  "version": "2.0.0",
-  "license": "GPL-3.0-or-later",
-  "engines": {
-    "vscode": "^1.73.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "keywords": [
-    "chatgpt",
-    "openai",
-    "gpt-3",
-    "ai"
-  ],
-  "icon": "images/icon.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kiranvshah/chatgpt-helper.git"
-  },
-  "publisher": "kiranshah",
-  "activationEvents": [
-    "onCommand:chatgpt-helper.askChatGptWhyNotWorking",
-    "onCommand:chatgpt-helper.askChatGptToExplainCode",
-    "onCommand:chatgpt-helper.askChatGptCustomQuery"
-  ],
-  "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "chatgpt-helper.askChatGptWhyNotWorking",
-        "title": "ChatGPT: Ask why code isn't working"
-      },
-      {
-        "command": "chatgpt-helper.askChatGptToExplainCode",
-        "title": "ChatGPT: Ask to explain code"
-      },
-      {
-        "command": "chatgpt-helper.askChatGptCustomQuery",
-        "title": "ChatGPT: Ask a question"
-      }
-    ],
-    "configuration": {
-      "title": "ChatGPT Helper",
-      "properties": {
-        "chatgptHelper.queries.queryCodeNotWorking": {
-          "type": "string",
-          "default": "Explain what is wrong with the following code:",
-          "description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
-        },
-        "chatgptHelper.queries.queryExplainCode": {
-          "type": "string",
-          "default": "Explain the following code:",
-          "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
-        },
-        "chatgptHelper.sessionToken": {
-          "type": "string",
-          "default": "",
-          "markdownDescription": "Session token for ChatGPT. To find, go to [chat.openai.com/chat](https://chat.openai.com/chat). Press `Ctrl`+`Shift`+`I` (or `Command`+`Option`+`I` on Mac). Open Applications > Cookies > `https://chat.openai.com`. Copy the value of the `__Secure-next-auth.session-token` and paste it here."
-        }
-      }
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "webpack run package",
-    "webpack": "webpack --mode development",
-    "webpack-dev": "webpack --mode development --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "test-compile": "tsc -p ./",
-    "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write ."
-  },
-  "devDependencies": {
-    "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.73.0",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "@vscode/test-electron": "^2.2.0",
-    "eslint": "^8.28.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.1.0",
-    "prettier": "^2.8.1",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-loader": "^0.0.1"
-  },
-  "dependencies": {
-    "chatgpt": "^2.0.5"
-  }
+	"name": "chatgpt-helper",
+	"displayName": "ChatGPT Helper",
+	"description": "Make queries to OpenAI's ChatGPT from inside VS Code.",
+	"version": "2.0.0",
+	"license": "GPL-3.0-or-later",
+	"engines": {
+		"vscode": "^1.73.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"chatgpt",
+		"openai",
+		"gpt-3",
+		"ai"
+	],
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kiranvshah/chatgpt-helper.git"
+	},
+	"publisher": "kiranshah",
+	"activationEvents": [
+		"onCommand:chatgpt-helper.askChatGptWhyNotWorking",
+		"onCommand:chatgpt-helper.askChatGptToExplainCode",
+		"onCommand:chatgpt-helper.askChatGptCustomQuery"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "chatgpt-helper.askChatGptWhyNotWorking",
+				"title": "ChatGPT: Ask why code isn't working"
+			},
+			{
+				"command": "chatgpt-helper.askChatGptToExplainCode",
+				"title": "ChatGPT: Ask to explain code"
+			},
+			{
+				"command": "chatgpt-helper.askChatGptCustomQuery",
+				"title": "ChatGPT: Ask a question"
+			}
+		],
+		"configuration": {
+			"title": "ChatGPT Helper",
+			"properties": {
+				"chatgptHelper.queries.queryCodeNotWorking": {
+					"type": "string",
+					"default": "Explain what is wrong with the following code:",
+					"description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
+				},
+				"chatgptHelper.queries.queryExplainCode": {
+					"type": "string",
+					"default": "Explain the following code:",
+					"description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
+				},
+				"chatgptHelper.sessionToken": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "Session token for ChatGPT. To find, go to [chat.openai.com/chat](https://chat.openai.com/chat). Press `Ctrl`+`Shift`+`I` (or `Command`+`Option`+`I` on Mac). Open Applications > Cookies > `https://chat.openai.com`. Copy the value of the `__Secure-next-auth.session-token` and paste it here."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "webpack run package",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"prettier:check": "prettier --check .",
+		"prettier:write": "prettier --write ."
+	},
+	"devDependencies": {
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"@vscode/test-electron": "^2.2.0",
+		"eslint": "^8.28.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.1.0",
+		"prettier": "^2.8.1",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.3",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-loader": "^0.0.1"
+	},
+	"dependencies": {
+		"chatgpt": "^2.0.5"
+	}
 }
