@@ -55,7 +55,7 @@
           "type": "string",
           "default": "Explain the following code:",
           "description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
-        },        
+        },
         "chatgptHelper.sessionToken": {
           "type": "string",
           "default": "",
@@ -76,7 +76,6 @@
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
-    "@types/puppeteer": "^7.0.4",
     "@types/vscode": "^1.73.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
