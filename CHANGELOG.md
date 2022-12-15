@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1
+
+-   Use webpack instead of esbuild
+    -   Removes need for npm; solely uses pnpm now
+-   Remove unnecessary package @types/puppeteer
+-   Add Prettier
+
 ## 2.0.0
 
 -   Use [unofficial ChatGPT REST API](https://github.com/transitive-bullshit/chatgpt-api) instead of puppeteer
