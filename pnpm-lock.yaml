@@ -12,6 +12,7 @@ specifiers:
   eslint: ^8.28.0
   glob: ^8.0.3
   mocha: ^10.1.0
+  prettier: ^2.8.1
   ts-loader: ^9.4.2
   typescript: ^4.9.3
   webpack: ^5.75.0
@@ -32,6 +33,7 @@ devDependencies:
   eslint: 8.29.0
   glob: 8.0.3
   mocha: 10.1.0
+  prettier: 2.8.1
   ts-loader: 9.4.2_vfotqvx6lgcbf3upbs6hgaza4q
   typescript: 4.9.3
   webpack: 5.75.0_webpack-cli@5.0.1
@@ -2912,6 +2914,12 @@ packages:
   /preserve/0.2.0:
     resolution: {integrity: sha512-s/46sYeylUfHNjI+sA/78FAHlmIuKqI9wNnzEOGehAlUUYeObv5C2mOinXBjyUyWmJ2SfcS2/ydApH4hTF4WXQ==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /process-nextick-args/2.0.1:
