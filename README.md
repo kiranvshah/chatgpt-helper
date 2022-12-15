@@ -36,6 +36,7 @@ Use the "ChatGPT: Ask a question" command in the Command Palette:
 ### Session Token
 
 When first querying ChatGPT, you will have to enter your ChatGPT session token. Instructions to find this are as follows:
+
 1. Go to [chat.openai.com/chat](https://chat.openai.com/chat).
 2. Press `Ctrl` + `Shift` + `I` (or `Command` + `Option` + `I` on Mac).
 3. Open Applications > Cookies > `https://chat.openai.com`.
@@ -51,4 +52,4 @@ In order to change the message sent to the AI that comes before your code, when 
 
 ## Known Issues
 
-*None*
+_None_
