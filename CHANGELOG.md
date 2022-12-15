@@ -3,7 +3,6 @@
 ## 2.0.1
 
 -   Use webpack instead of esbuild
-    -   Removes need for npm; solely uses pnpm now
 -   Remove unnecessary package @types/puppeteer
 -   Add Prettier
 
