@@ -14,7 +14,8 @@
 		"chatgpt",
 		"openai",
 		"gpt-3",
-		"ai"
+		"ai",
+		"codex"
 	],
 	"icon": "images/icon.png",
 	"repository": {
