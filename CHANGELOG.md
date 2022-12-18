@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.1
+
+-   Add `codex` tag to marketplace page
+-   Update README to not include strikethrough
+
 ## 3.0.0
 
 -   Use Codex instead of ChatGPT
