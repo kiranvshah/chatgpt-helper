@@ -90,6 +90,7 @@
 		"typescript": "^4.9.3"
 	},
 	"dependencies": {
-		"chatgpt": "^2.3.3"
+		"chatgpt": "^2.2.0",
+		"puppeteer": "^19.4.0"
 	}
 }
