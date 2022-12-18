@@ -51,8 +51,9 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 		JSON.stringify({
 			model: "code-davinci-002",
 			prompt: entireQueryText,
-			temperature: 0,
-			max_tokens: 256, // eslint-disable-line @typescript-eslint/naming-convention
+			temperature: 0.1,
+			max_tokens: 512, // eslint-disable-line @typescript-eslint/naming-convention
+			frequency_penalty: 0.38, // eslint-disable-line @typescript-eslint/naming-convention
 		}),
 	)
 	request.end()
