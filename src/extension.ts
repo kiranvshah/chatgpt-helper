@@ -51,7 +51,6 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 		JSON.stringify({
 			model: "code-davinci-002",
 			prompt: entireQueryText,
-			echo: true,
 			temperature: 0,
 			max_tokens: 256, // eslint-disable-line @typescript-eslint/naming-convention
 		}),
@@ -66,7 +65,7 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 					new vscode.Position(0, 0),
 					new vscode.Position(99999999999999, 0),
 				),
-				`Response:\n${responseText}}`,
+				`${responseText}}`,
 			)
 		})
 	})
