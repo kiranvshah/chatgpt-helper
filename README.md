@@ -1,6 +1,6 @@
 # ChatGPT Helper
 
-This is an extension to quickly query OpenAI's ~~[ChatGPT](https://openai.com/blog/chatgpt/)~~ [Codex](https://openai.com/blog/openai-codex/), an AI code assistant from VS Code.
+This is an extension to quickly query OpenAI's [Codex](https://openai.com/blog/openai-codex/), an AI code assistant similar to ChatGPT, from VS Code.
 
 > **Note**  
 > Temporarily, the extension is using Codex, a similar model by OpenAI, instead of ChatGPT, since ChatGPT is near impossible to automate at this time.
