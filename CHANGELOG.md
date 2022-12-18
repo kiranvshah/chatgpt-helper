@@ -5,6 +5,7 @@
 -   Use Codex instead of ChatGPT
     -   Update query prompts
     -   Remove `chatgpt` dependency
+-   Add continuous integration
 
 ## 2.0.1
 
