@@ -48,7 +48,7 @@
 			"properties": {
 				"chatgptHelper.queries.queryCodeNotWorking": {
 					"type": "string",
-					"default": "'''\nExplain what is wrong with that code.",
+					"default": "'''\nExplanation from a helpful, creative, clever and friendly AI assistanct of what is wrong with the code:",
 					"description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
 				},
 				"chatgptHelper.queries.queryExplainCode": {
