@@ -42,7 +42,9 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 					JSON.parse(data.toString()),
 					JSON.parse(data.toString()).choices[0].text,
 				)
-				responseText += JSON.parse(data.toString()).choices[0].text
+				responseText += JSON.parse(data.toString())
+					.choices[0].text.trim()
+					.replace(/'''$/, "")
 			})
 		},
 	)
@@ -66,7 +68,7 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 					new vscode.Position(0, 0),
 					new vscode.Position(99999999999999, 0),
 				),
-				`${responseText}}`,
+				`${responseText}`,
 			)
 		})
 	})
@@ -129,6 +131,7 @@ export function activate(context: vscode.ExtensionContext) {
 				sendQueryToChatGPT(
 					codeToQuery +
 						"\n" +
+						"'''" +
 						(workspaceConfiguration.get(
 							"chatgptHelper.queries.queryCodeNotWorking",
 						) as string | null),
@@ -165,6 +168,7 @@ export function activate(context: vscode.ExtensionContext) {
 				sendQueryToChatGPT(
 					codeToQuery +
 						"\n" +
+						"'''" +
 						(workspaceConfiguration.get(
 							"chatgptHelper.queries.queryExplainCode",
 						) as string | null),
