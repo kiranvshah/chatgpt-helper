@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0
+
+-   Use Codex instead of ChatGPT
+    -   Update query prompts
+    -   Remove `chatgpt` dependency
+-   Add continuous integration
+
 ## 2.0.1
 
 -   Use webpack instead of esbuild

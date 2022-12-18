@@ -1,6 +1,9 @@
 # ChatGPT Helper
 
-This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt/) from VS Code.
+This is an extension to quickly query OpenAI's ~~[ChatGPT](https://openai.com/blog/chatgpt/)~~ [Codex](https://openai.com/blog/openai-codex/), an AI code assistant from VS Code.
+
+> **Note**  
+> Temporarily, the extension is using Codex, a similar model by OpenAI, instead of ChatGPT, since ChatGPT is near impossible to automate at this time.
 
 ## Features
 
@@ -31,16 +34,17 @@ Use the "ChatGPT: Ask a question" command in the Command Palette:
 3. Enter the question you'd like to ask.
 4. Wait for the response. It will appear in a new tab.
 
+## Authentication
+
+When you first query Codex, you will be prompted to enter an OpenAI API key. This is used by the extension to access the API and is only sent to OpenAI. Codex is currently free, so does not use up any credits on your account.
+
+To find your OpenAI API key:
+
+1. Go to https://beta.openai.com/account/api-keys. You will need to log in (or sign up) to your OpenAI account.
+2. Click "Create new secret key", and copy it.
+3. You should then paste it into VS Code when prompted.
+
 ## Configuration
-
-### Session Token
-
-When first querying ChatGPT, you will have to enter your ChatGPT session token. Instructions to find this are as follows:
-
-1. Go to [chat.openai.com/chat](https://chat.openai.com/chat).
-2. Press `Ctrl` + `Shift` + `I` (or `Command` + `Option` + `I` on Mac).
-3. Open Applications > Cookies > `https://chat.openai.com`.
-4. Copy the value of the `__Secure-next-auth.session-token` and paste it where prompted, when querying the AI.
 
 ### Changing Query Text
 

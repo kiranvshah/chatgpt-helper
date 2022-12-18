@@ -2,7 +2,7 @@
 	"name": "chatgpt-helper",
 	"displayName": "ChatGPT Helper",
 	"description": "Make queries to OpenAI's ChatGPT from inside VS Code.",
-	"version": "2.0.1",
+	"version": "3.0.0",
 	"license": "GPL-3.0-or-later",
 	"engines": {
 		"vscode": "^1.73.0"
@@ -48,13 +48,13 @@
 			"properties": {
 				"chatgptHelper.queries.queryCodeNotWorking": {
 					"type": "string",
-					"default": "Explain what is wrong with the following code:",
-					"description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
+					"default": "\nExplanation from a helpful, creative, clever and friendly AI assistanct of what is wrong with the code:",
+					"description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (after) the code."
 				},
 				"chatgptHelper.queries.queryExplainCode": {
 					"type": "string",
-					"default": "Explain the following code:",
-					"description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
+					"default": "\nExplanation from a helpful, creative, clever and friendly AI assistanct of what the code does:",
+					"description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (after) the code."
 				},
 				"chatgptHelper.sessionToken": {
 					"type": "string",
@@ -90,8 +90,5 @@
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
 		"webpack-loader": "^0.0.1"
-	},
-	"dependencies": {
-		"chatgpt": "^2.0.5"
 	}
 }
