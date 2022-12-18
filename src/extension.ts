@@ -3,7 +3,82 @@
 import * as vscode from "vscode"
 import * as https from "https"
 
-const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
+const getCommentOpening = (editor: vscode.TextEditor | undefined) => {
+	switch (editor?.document.languageId) {
+		case "c":
+		case "cpp":
+		case "csharp":
+		case "cuda-cpp":
+		case "objective-c":
+		case "objective-cpp":
+		case "go":
+		case "rust":
+		case "java":
+		case "scala":
+		case "kotlin":
+		case "scss":
+		case "swift":
+		case "typescript":
+		case "javascript":
+		case "javascriptreact":
+		case "coffeescript":
+		case "groovy":
+		case "php":
+			return "/*"
+		case "python":
+			return '"""'
+		case "ruby":
+			return "=begin"
+		case "perl":
+		case "perl6":
+			return "=pod"
+		case "r":
+			return "#"
+		default:
+			return "/*"
+	}
+}
+const getCommentEnding = (editor: vscode.TextEditor | undefined) => {
+	switch (editor?.document.languageId) {
+		case "c":
+		case "cpp":
+		case "csharp":
+		case "cuda-cpp":
+		case "objective-c":
+		case "objective-cpp":
+		case "go":
+		case "rust":
+		case "java":
+		case "scala":
+		case "kotlin":
+		case "scss":
+		case "swift":
+		case "typescript":
+		case "javascript":
+		case "javascriptreact":
+		case "coffeescript":
+		case "groovy":
+		case "php":
+			return /\*\/$/m
+		case "python":
+			return /""""$/m
+		case "ruby":
+			return /=end$/m
+		case "perl":
+		case "perl6":
+			return /=cut$/m
+		case "r":
+			return /#$/m
+		default:
+			return /\*\/$/m
+	}
+}
+
+const sendQueryToChatGPT = async (
+	queryText: string,
+	openAIKey: string,
+	commentClosing?: RegExp,
+) => {
 	// get user or workspace configuration object
 	let config = vscode.workspace.getConfiguration()
 
@@ -42,9 +117,12 @@ const sendQueryToChatGPT = async (queryText: string, openAIKey: string) => {
 					JSON.parse(data.toString()),
 					JSON.parse(data.toString()).choices[0].text,
 				)
-				responseText += JSON.parse(data.toString())
-					.choices[0].text.trim()
-					.replace(/'''$/, "")
+				responseText += JSON.parse(
+					data.toString(),
+				).choices[0].text.trim()
+				if (commentClosing) {
+					responseText = responseText.replace(commentClosing, "")
+				}
 			})
 		},
 	)
@@ -128,14 +206,21 @@ export function activate(context: vscode.ExtensionContext) {
 			if (codeToQuery) {
 				const workspaceConfiguration =
 					vscode.workspace.getConfiguration()
+				const commentOpening = getCommentOpening(
+					vscode.window.activeTextEditor,
+				)
+				const commentEnding = getCommentEnding(
+					vscode.window.activeTextEditor,
+				)
 				sendQueryToChatGPT(
 					codeToQuery +
 						"\n" +
-						"'''" +
+						commentOpening +
 						(workspaceConfiguration.get(
 							"chatgptHelper.queries.queryCodeNotWorking",
 						) as string | null),
 					await getOpenAIKey(),
+					commentEnding,
 				)
 			} else {
 				vscode.window.showErrorMessage(
@@ -165,6 +250,12 @@ export function activate(context: vscode.ExtensionContext) {
 			if (codeToQuery) {
 				const workspaceConfiguration =
 					vscode.workspace.getConfiguration()
+				const commentOpening = getCommentOpening(
+					vscode.window.activeTextEditor,
+				)
+				const commentEnding = getCommentEnding(
+					vscode.window.activeTextEditor,
+				)
 				sendQueryToChatGPT(
 					codeToQuery +
 						"\n" +
@@ -173,6 +264,7 @@ export function activate(context: vscode.ExtensionContext) {
 							"chatgptHelper.queries.queryExplainCode",
 						) as string | null),
 					await getOpenAIKey(),
+					commentEnding,
 				)
 			} else {
 				vscode.window.showErrorMessage(
