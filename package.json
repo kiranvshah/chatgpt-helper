@@ -48,12 +48,12 @@
 			"properties": {
 				"chatgptHelper.queries.queryCodeNotWorking": {
 					"type": "string",
-					"default": "Explain what is wrong with the following code:",
+					"default": "'''\nExplain what is wrong with that code.",
 					"description": "The query to send to ChatGPT when asking what is wrong with code. Will be sent alongside (before) the code."
 				},
 				"chatgptHelper.queries.queryExplainCode": {
 					"type": "string",
-					"default": "Explain the following code:",
+					"default": "'''\nExplanation from a helpful, creative, clever and friendly AI assistanct of what the code does:",
 					"description": "The query to send to ChatGPT when asking to explain code. Will be sent alongside (before) the code."
 				},
 				"chatgptHelper.sessionToken": {
@@ -90,8 +90,5 @@
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
 		"webpack-loader": "^0.0.1"
-	},
-	"dependencies": {
-		"chatgpt": "^2.0.5"
 	}
 }
