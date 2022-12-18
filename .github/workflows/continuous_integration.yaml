@@ -1,0 +1,42 @@
+name: Continuous Integration
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+        defaults:
+            run:
+                shell: bash
+        steps:
+            - name: Set EOL character
+              run: git config --global core.autocrlf false
+
+            - name: Check out repo
+              uses: actions/checkout@v3
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+
+            - name: Install pnpm dependencies
+              run: pnpm install
+
+            - name: Prettier Formatting Check
+              run: pnpm prettier:check
+
+            - name: Build VS Code extension
+              run: pnpm package
