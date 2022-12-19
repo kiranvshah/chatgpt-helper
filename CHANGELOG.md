@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+-   Continuous integration: cache pnpm dependencies
+
 ## 3.0.1
 
 -   Add `codex` tag to marketplace page
