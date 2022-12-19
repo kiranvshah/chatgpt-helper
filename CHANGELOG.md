@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+-   Fixed bug where query for explaining code always used opened comment with `'''` instead of the correct one for the language
 -   Continuous integration: cache pnpm dependencies
 
 ## 3.0.1

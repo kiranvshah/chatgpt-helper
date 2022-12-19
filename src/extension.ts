@@ -259,7 +259,7 @@ export function activate(context: vscode.ExtensionContext) {
 				sendQueryToChatGPT(
 					codeToQuery +
 						"\n" +
-						"'''" +
+						commentOpening +
 						(workspaceConfiguration.get(
 							"chatgptHelper.queries.queryExplainCode",
 						) as string | null),
