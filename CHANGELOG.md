@@ -2,7 +2,8 @@
 
 ## UNRELEASED
 
--   Fixed bug where query for explaining code always used opened comment with `'''` instead of the correct one for the language
+-   Fix bug where query for explaining code always used opened comment with `'''` instead of the correct one for the language
+-   Remove now unused ChatGPT session token config option
 -   Continuous integration: cache pnpm dependencies
 
 ## 3.0.1
