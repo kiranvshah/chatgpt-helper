@@ -111,12 +111,6 @@ const sendQueryToChatGPT = async (
 		response => {
 			response.on("data", data => {
 				process.stdout.write(data)
-				console.log(
-					"DATA",
-					data,
-					JSON.parse(data.toString()),
-					JSON.parse(data.toString()).choices[0].text,
-				)
 				responseText += JSON.parse(
 					data.toString(),
 				).choices[0].text.trim()
@@ -139,7 +133,6 @@ const sendQueryToChatGPT = async (
 	request.end()
 	request.on("close", () => {
 		// success
-		console.log("RESPONSE", responseText)
 		outputDocumentEditor.edit(editBuilder => {
 			editBuilder.replace(
 				new vscode.Range(

@@ -1,8 +1,12 @@
 # Changelog
 
+## UPCOMING
+
+-   Remove unnecesary console logging
+
 ## 3.1.0
 
--   Added command to change OpenAI API key once it is already set (`chatgpt-helper.changeOpenAIAPIKey`)
+-   Add command to change OpenAI API key once it is already set (`chatgpt-helper.changeOpenAIAPIKey`)
 
 ## 3.0.2
 
