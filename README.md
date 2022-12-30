@@ -44,6 +44,14 @@ To find your OpenAI API key:
 2. Click "Create new secret key", and copy it.
 3. You should then paste it into VS Code when prompted.
 
+### Changing API key
+
+Once your OpenAI API key has been set you can update it using the "ChatGPT: Change OpenAI API key" command in the Command Palette:
+
+1. Press `Ctrl` + `Shift` + `P` to open the Command Palette.
+2. Begin typing `ChatGPT: Change OpenAI API key`, and select it when it appears.
+3. Enter your OpenAI API key (see above instructions on how to find).
+
 ## Configuration
 
 ### Changing Query Text

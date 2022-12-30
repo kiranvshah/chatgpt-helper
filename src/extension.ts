@@ -167,10 +167,10 @@ const sendQueryToChatGPT = async (
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	const getOpenAIKey = async () => {
+	const getOpenAIKey = async (forceChange: boolean = false) => {
 		const secrets = context.secrets
 		const oldOpenAIKey = await secrets.get("openAIKey")
-		if (oldOpenAIKey) {
+		if (oldOpenAIKey && !forceChange) {
 			return oldOpenAIKey
 		}
 		const key = await vscode.window.showInputBox({
@@ -292,10 +292,18 @@ export function activate(context: vscode.ExtensionContext) {
 		},
 	)
 
+	const updateOpenAIKey = vscode.commands.registerCommand(
+		"chatgpt-helper.changeOpenAIAPIKey",
+		async () => {
+			await getOpenAIKey(true)
+		},
+	)
+
 	context.subscriptions.push(
 		askChatGptWhyNotWorking,
 		askChatGptToExplainCode,
 		askChatGptCustomQuery,
+		updateOpenAIKey,
 	)
 }
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0
+
+-   Added command to change OpenAI API key once it is already set (`chatgpt-helper.changeOpenAIAPIKey`)
+
 ## 3.0.2
 
 -   Fix bug where query for explaining code always used opened comment with `'''` instead of the correct one for the language

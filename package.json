@@ -26,7 +26,8 @@
 	"activationEvents": [
 		"onCommand:chatgpt-helper.askChatGptWhyNotWorking",
 		"onCommand:chatgpt-helper.askChatGptToExplainCode",
-		"onCommand:chatgpt-helper.askChatGptCustomQuery"
+		"onCommand:chatgpt-helper.askChatGptCustomQuery",
+		"onCommand:chatgpt-helper.changeOpenAIAPIKey"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -42,6 +43,10 @@
 			{
 				"command": "chatgpt-helper.askChatGptCustomQuery",
 				"title": "ChatGPT: Ask a question"
+			},
+			{
+				"command": "chatgpt-helper.changeOpenAIAPIKey",
+				"title": "ChatGPT: Change OpenAI API key"
 			}
 		],
 		"configuration": {
