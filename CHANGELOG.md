@@ -1,5 +1,9 @@
 # Changelog
 
+## UPCOMING
+
+-   Continuous integration: update `actions/setup-node` to v3
+
 ## 3.2.0
 
 -   Explanation and debug commands can now be run by right-clicking inside an editor (`editor/context` menu)
