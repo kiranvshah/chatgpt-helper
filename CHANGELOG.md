@@ -1,7 +1,8 @@
 # Changelog
 
-## UPCOMING
+## 3.2.0
 
+-   Explanation and debug commands can now be run by right-clicking inside an editor (`editor/context` menu)
 -   Remove unnecesary console logging
 
 ## 3.1.0

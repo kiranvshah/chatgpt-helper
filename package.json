@@ -49,6 +49,20 @@
 				"title": "ChatGPT: Change OpenAI API key"
 			}
 		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "chatgpt-helper.askChatGptWhyNotWorking",
+					"when": "editorTextFocus",
+					"group": "chatgpt_helper@1"
+				},
+				{
+					"command": "chatgpt-helper.askChatGptToExplainCode",
+					"when": "editorTextFocus",
+					"group": "chatgpt_helper@2"
+				}
+			]
+		},
 		"configuration": {
 			"title": "ChatGPT Helper",
 			"properties": {
