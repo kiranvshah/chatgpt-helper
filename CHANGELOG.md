@@ -1,7 +1,8 @@
 # Changelog
 
-## UPCOMING
+## 3.2.1
 
+-   Change marketplace display name from "ChatGPT Helper" to "ChatGPT"
 -   Continuous integration: update `actions/setup-node` to v3
 
 ## 3.2.0
