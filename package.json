@@ -66,6 +66,23 @@
 		"configuration": {
 			"title": "ChatGPT Helper",
 			"properties": {
+				"chatgpt-helper.model": {
+					"type": "string",
+					"default": "codex",
+					"markdownDescription": "The model (Codex or ChatGPT) to answer your queries with. More pricing info at https://openai.com/pricing#chat",
+					"enum": [
+						"codex",
+						"chatgpt"
+					],
+					"enumItemLabels": [
+						"Codex (free)",
+						"ChatGPT (paid)"
+					],
+					"enumDescriptions": [
+						"Uses Codex, the engine that powers GitHub Copilot to answer your queries. This model is free and uses no OpenAI credits, but may produce lower quality results.",
+						"Uses ChatGPT to answer your queries. This produces higher quality results. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key."
+					]
+				},
 				"chatgpt-helper.codex.queries.codeNotWorking": {
 					"type": "string",
 					"default": "\nExplanation from a helpful, creative, clever and friendly AI assistanct of what is wrong with the code:",
