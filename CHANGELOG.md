@@ -5,6 +5,7 @@
 -   Update `openai` dependency
 -   Specify that old configuration options are for Codex only
 -   Change namespace for configuration options from `chatgptHelper` to `chatgpt-helper` to be in line with rest of extension
+-   Add configuration option to change model (`chatgpt-helper.model`)
 
 ## 3.2.1
 
