@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3.0
+
+-   Update `openai` dependency
+
 ## 3.2.1
 
 -   Change marketplace display name from "ChatGPT Helper" to "ChatGPT"
