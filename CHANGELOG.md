@@ -2,7 +2,7 @@
 
 ## 3.3.0
 
--   Add option to use official ChatGPT API
+-   Add option to use [official ChatGPT API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
     -   Add configuration option to change model (`chatgpt-helper.model`)
     -   Update `openai` dependency
     -   Update old Codex query configuration options
