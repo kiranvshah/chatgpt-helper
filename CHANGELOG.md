@@ -2,10 +2,14 @@
 
 ## 3.3.0
 
--   Update `openai` dependency
--   Specify that old configuration options are for Codex only
+-   Add option to use official ChatGPT API
+    -   Add configuration option to change model (`chatgpt-helper.model`)
+    -   Update `openai` dependency
+    -   Update old Codex query configuration options
+        -   Change IDs to be specific to Codex
+        -   Update description to specify that they are for Codex only
+        -   Fix misspelling of "assistant" in defaults
 -   Change namespace for configuration options from `chatgptHelper` to `chatgpt-helper` to be in line with rest of extension
--   Add configuration option to change model (`chatgpt-helper.model`)
 
 ## 3.2.1
 
