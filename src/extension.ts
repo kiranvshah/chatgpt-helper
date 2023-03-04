@@ -210,7 +210,7 @@ export function activate(context: vscode.ExtensionContext) {
 						"\n" +
 						commentOpening +
 						(workspaceConfiguration.get(
-							"chatgptHelper.queries.queryCodeNotWorking",
+							"chatgpt-helper.codex.queries.codeNotWorking",
 						) as string | null),
 					await getOpenAIKey(),
 					commentEnding,
@@ -254,7 +254,7 @@ export function activate(context: vscode.ExtensionContext) {
 						"\n" +
 						commentOpening +
 						(workspaceConfiguration.get(
-							"chatgptHelper.queries.queryExplainCode",
+							"chatgpt-helper.codex.queries.explainCode",
 						) as string | null),
 					await getOpenAIKey(),
 					commentEnding,
