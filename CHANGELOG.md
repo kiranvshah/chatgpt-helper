@@ -1,6 +1,10 @@
 # Changelog
 
-## 3.3.0
+## 3.4.1
+
+-   Update changelog to rename v3.3.0 to v3.4.0 since it was erroneously published under the wrong version number
+
+## 3.4.0
 
 -   Add option to use [official ChatGPT API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
     -   Add configuration option to change model (`chatgpt-helper.model`)
