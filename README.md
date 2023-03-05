@@ -1,9 +1,10 @@
 # ChatGPT Helper
 
-This is an extension to quickly query OpenAI's [Codex](https://openai.com/blog/openai-codex/), an AI code assistant similar to ChatGPT, from VS Code.
+This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt) or [Codex](https://openai.com/blog/openai-codex/) from VS Code.
 
-> **Note**  
-> Temporarily, the extension is using Codex, a similar model by OpenAI, instead of ChatGPT, since ChatGPT is near impossible to automate at this time.
+ChatGPT is a large language model designed to answer general queries. The official ChatGPT API costs $0.002 / 1K tokens, where 1,000 tokens is approximately 750 words, so **$1 would buy approximately 2 million words**. To use this extension, you must provide an OpenAI API token; costs for using the API are charged directly to your OpenAI account.
+
+Alternatively, you can use Codex - another model by OpenAI specialised for code. This is the model used by GitHub Copilot. Codex is entirely free but still requires an API token in order to use.
 
 ## Features
 
@@ -34,7 +35,7 @@ When you first query Codex, you will be prompted to enter an OpenAI API key. Thi
 
 To find your OpenAI API key:
 
-1. Go to https://beta.openai.com/account/api-keys. You will need to log in (or sign up) to your OpenAI account.
+1. Go to https://platform.openai.com/account/api-keys. You will need to log in (or sign up) to your OpenAI account.
 2. Click "Create new secret key", and copy it.
 3. You should then paste it into VS Code when prompted.
 
@@ -46,16 +47,27 @@ Once your OpenAI API key has been set you can update it using the "ChatGPT: Chan
 2. Begin typing `ChatGPT: Change OpenAI API key`, and select it when it appears.
 3. Enter your OpenAI API key (see above instructions on how to find).
 
+### Pricing
+
+While Codex (default) is entirely free, the ChatGPT API is charged by OpenAI at $0.002 / 1K tokens, charged directly to your OpenAI account. To use the ChatGPT model, you must set up billing on your account. Find more info about pricing at https://openai.com/pricing#chat.
+
 ## Configuration
+
+### Switching Between Models
+
+In order to switch the model between Codex (default, free) and ChatGPT (paid), follow these instructions:
+
+1. `Ctrl` + `,` to open Preferences.
+2. Search for `chatgpt-helper.model`.
+3. Use the dropdown to switch between Codex and ChatGPT.
 
 ### Changing Query Text
 
-In order to change the message sent to the AI that comes before your code, when running the `Ask ChatGPT about your code`, follow these instructions:
+> **Note**  
+> Currently, this is only available for the Codex model.
+
+In order to change the prompt sent to the AI that comes alongside your code, when running the code explanation/debug comnmands, follow these instructions:
 
 1. `Ctrl` + `,` to open Preferences.
-2. Search for `chatgpt`.
-3. Change the `chatgpt.queryText` setting to whatever you want.
-
-## Known Issues
-
-_None_
+2. Search for `chatgpt-helper`.
+3. Change the relevant settings under `Codex > Queries` to whatever you want.

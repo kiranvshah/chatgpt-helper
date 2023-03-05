@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.3.0
+
+-   Add option to use [official ChatGPT API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
+    -   Add configuration option to change model (`chatgpt-helper.model`)
+    -   Update `openai` dependency
+    -   Update old Codex query configuration options
+        -   Change IDs to be specific to Codex
+        -   Update description to specify that they are for Codex only
+        -   Fix misspelling of "assistant" in defaults
+    -   When using Codex, the model is refferred to as "Codex" instead of "ChatGPT" in the response window
+-   Change namespace for configuration options from `chatgptHelper` to `chatgpt-helper` to be in line with rest of extension
+
 ## 3.2.1
 
 -   Change marketplace display name from "ChatGPT Helper" to "ChatGPT"
