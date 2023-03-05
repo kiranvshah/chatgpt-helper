@@ -9,6 +9,7 @@
         -   Change IDs to be specific to Codex
         -   Update description to specify that they are for Codex only
         -   Fix misspelling of "assistant" in defaults
+    -   When using Codex, the model is refferred to as "Codex" instead of "ChatGPT" in the response window
 -   Change namespace for configuration options from `chatgptHelper` to `chatgpt-helper` to be in line with rest of extension
 
 ## 3.2.1
