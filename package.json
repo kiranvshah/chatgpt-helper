@@ -68,30 +68,17 @@
 			"properties": {
 				"chatgpt-helper.model": {
 					"type": "string",
-					"default": "codex",
-					"markdownDescription": "The model (Codex or ChatGPT) to answer your queries with. More pricing info at https://openai.com/pricing#chat",
+					"default": "gpt-3.5",
+					"markdownDescription": "The model (currently only GPT-3.5) to answer your queries with. More pricing info at https://openai.com/pricing#chat",
 					"enum": [
-						"codex",
-						"chatgpt"
+						"gpt-3.5"
 					],
 					"enumItemLabels": [
-						"Codex (free)",
-						"ChatGPT (paid)"
+						"GPT-3.5"
 					],
 					"enumDescriptions": [
-						"Uses Codex, the engine that powers GitHub Copilot to answer your queries. This model is free and uses no OpenAI credits, but may produce lower quality results.",
-						"Uses ChatGPT to answer your queries. This produces higher quality results. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key."
+						"Uses GPT-3.5 to answer your queries. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key."
 					]
-				},
-				"chatgpt-helper.codex.queries.codeNotWorking": {
-					"type": "string",
-					"default": "\nExplanation from a helpful, creative, clever and friendly AI assistant of what is wrong with the code:",
-					"description": "The query to send to Codex when asking what is wrong with code. Will be sent alongside (after) the code."
-				},
-				"chatgpt-helper.codex.queries.explainCode": {
-					"type": "string",
-					"default": "\nExplanation from a helpful, creative, clever and friendly AI assistant of what the code does:",
-					"description": "The query to send to Codex when asking to explain code. Will be sent alongside (after) the code."
 				}
 			}
 		}
