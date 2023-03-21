@@ -1,7 +1,11 @@
 # Changelog
 
-## UPCOMING
+## 4.0.0
 
+-   Remove option to use Codex since it is being deprecated by OpenAI, in favour of `gpt-3.5-turbo`.
+    -   Remove option from configuration
+    -   Remove all referecences in README and now explain that extension must be paid for
+    -   Refer to model as GPT-3.5 instead of ChatGPT in both README and configuraiton
 -   Re-add 3.3.0 into changelog, but keep 3.4.0 as well since both have been published
 
 ## 3.4.1
