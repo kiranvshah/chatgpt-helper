@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.1
+
+-   Fix error in README relating to how many words $1 can buy
+
 ## 4.0.0
 
 -   Remove option to use Codex since it is being deprecated by OpenAI, in favour of `gpt-3.5-turbo`.
