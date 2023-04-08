@@ -2,7 +2,7 @@
 
 This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt) (GPT-3.5) from VS Code.
 
-GPT-3.5, which powers ChatGPT, is a large language model designed to answer general queries. The official GPT-3.5 API costs $0.002 / 1K tokens, where 1,000 tokens is approximately 750 words, so **$1 would buy approximately 2 million words**.
+GPT-3.5, which powers ChatGPT, is a large language model designed to answer general queries. The official GPT-3.5 API costs $0.002 / 1K tokens, where 1,000 tokens is approximately 750 words, so **$1 would buy approximately 375,000 words**.
 
 To use this extension, you must provide an OpenAI API token linked to an account with billing set up; costs for using the API are charged directly to your OpenAI account.
 
