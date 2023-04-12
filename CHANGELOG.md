@@ -2,6 +2,8 @@
 
 ## 4.1.0
 
+-   Add option to use GPT-4, updating README accordingly
+
 ## 4.0.1
 
 -   Fix error in README relating to how many words $1 can buy
