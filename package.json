@@ -71,13 +71,16 @@
 					"default": "gpt-3.5",
 					"markdownDescription": "The model (currently only GPT-3.5) to answer your queries with. More pricing info at https://openai.com/pricing#chat",
 					"enum": [
-						"gpt-3.5"
+						"gpt-3.5",
+						"gpt-4"
 					],
 					"enumItemLabels": [
-						"GPT-3.5"
+						"GPT-3.5",
+						"GPT-4"
 					],
-					"enumDescriptions": [
-						"Uses GPT-3.5 to answer your queries. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key."
+					"markdownEnumDescriptions": [
+						"Uses GPT-3.5 to answer your queries. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key.",
+						"Uses GPT-4 to answer your queries (this model is more powerful but more expensive). This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key. Note: the GPT-4 API is currently invite-only. You can sign up for the waitlist [here](https://openai.com/waitlist/gpt-4-api)."
 					]
 				}
 			}

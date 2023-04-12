@@ -6,6 +6,7 @@ import * as https from "https"
 const sendQueryToOpenAI = async (queryText: string, openAIKey: string) => {
 	// get user or workspace configuration object
 	let config = vscode.workspace.getConfiguration()
+	const model = config.get("chatgpt-helper.model") as string | null
 
 	const outputDocument = await vscode.workspace.openTextDocument({
 		content: `Querying ChatGPT. This may take some time...`,
@@ -44,7 +45,7 @@ const sendQueryToOpenAI = async (queryText: string, openAIKey: string) => {
 
 	request.write(
 		JSON.stringify({
-			model: "gpt-3.5-turbo",
+			model: model === "gpt-4" ? "gpt-4" : "gpt-3.5-turbo",
 			max_tokens: 512, // eslint-disable-line @typescript-eslint/naming-convention
 			// todo: should subtract length (in tokens) of query
 			messages: [

@@ -1,8 +1,10 @@
 # ChatGPT Helper
 
-This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt) (GPT-3.5) from VS Code.
+This is an extension to quickly query OpenAI's [ChatGPT](https://openai.com/blog/chatgpt) (both GPT-3.5 and GPT-4) from VS Code. A ChatGPT Plus subcription is not required to use this extension.
 
-GPT-3.5, which powers ChatGPT, is a large language model designed to answer general queries. The official GPT-3.5 API costs $0.002 / 1K tokens, where 1,000 tokens is approximately 750 words, so **$1 would buy approximately 375,000 words**.
+**GPT-3.5**, which powers ChatGPT, is a large language model made by OpenAI. The official GPT-3.5 API costs $0.002 / 1K tokens for both prompts and responses, where 1,000 tokens is approximately 750 words, so **$1 would buy approximately 375,000 words**.
+
+Alternatively, you can opt to use **GPT-4**, GPT-3.5's successor, which is an even more powerful model. The API is currently invite-only, however you can sign up for the waitlist [here](https://openai.com/waitlist/gpt-4-api). The API is more expensive than GPT-3.5, costing $0.03 / 1K tokens for prompts and $0.06 / 1K tokens for responses, meaning **$1 would buy approximately 12,500 words of prompts and 6,250 words of response.**.
 
 To use this extension, you must provide an OpenAI API token linked to an account with billing set up; costs for using the API are charged directly to your OpenAI account.
 
@@ -51,4 +53,14 @@ Once your OpenAI API key has been set you can update it using the "ChatGPT: Chan
 
 ### Pricing
 
-The ChatGPT API is charged by OpenAI at $0.002 / 1K tokens, charged directly to your OpenAI account. To use this extension, you must set up billing on your account. Find more info about pricing at https://openai.com/pricing#chat.
+The GPT-3.5 API is charged by OpenAI at $0.002 / 1K tokens, while the GPT-4 API comes at $0.03 / 1K tokens. This is charged directly to your OpenAI account. To use this extension, you must set up billing on your account. Find more info about pricing at https://openai.com/pricing#chat.
+
+## Configuration
+
+### Switching Between Models
+
+In order to switch the model between GPT-3.5 (default) and GPT-4:
+
+1. `Ctrl` + `,` to open Preferences.
+2. Search for `chatgpt-helper.model`.
+3. Use the dropdown to switch between GPT-3.5 and GPT-4.
