@@ -1,5 +1,9 @@
 # Changelog
 
+## UPCOMING
+
+-   Add `gpt-4` tag to marketplace page
+
 ## 4.1.0
 
 -   Add option to use GPT-4, updating README accordingly
